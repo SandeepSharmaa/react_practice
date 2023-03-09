@@ -7,7 +7,9 @@ const SignUp = () => {
     name: "",
     email: "",
     password: "",
-    gender:""
+    gender: "",
+    terms:false ,
+    transport:""
   };
 
   const validationSchema = yup.object().shape({
@@ -17,7 +19,9 @@ const SignUp = () => {
       .required("Please enter email")
       .email("Please enter valid email"),
     password: yup.string().required("Please enter password"),
-    gender:yup.string().required("Please select gender"),
+    gender: yup.string().required("Please select gender"),
+    terms:yup.boolean().oneOf([true,'Please acccept terms and condition']),
+    transport:yup.string().required("Please select transport mode")
   });
 
   const handleSubmit = (values) => {
@@ -73,17 +77,53 @@ const SignUp = () => {
               </div>
 
               <div className="col-md-12 mt-4">
-                <Field component="select" name="gender" placeholder="Select your gender" className="form-control">
-                  <option value="" disabled >Please select gender</option>
+                <Field
+                  component="select"
+                  name="gender"
+                  placeholder="Select your gender"
+                  className="form-control"
+                >
+                  <option value="" disabled>
+                    Please select gender
+                  </option>
                   <option value="name">Male</option>
                   <option value="female">Female</option>
                 </Field>
                 <p className="text-danger">
-                  <ErrorMessage name="gender"/>
+                  <ErrorMessage name="gender" />
+                </p>
+              </div>
+
+              <div className="col-md-12 mt-4">
+                <label className="form-inline">
+                  <Field type="checkbox" name="terms">
+
+                  </Field>Accept Terms and Condition
+                </label>
+                <p className="text-danger">
+                  <ErrorMessage name="terms"/>
+                </p>
+              </div>
+
+              <div className="col-md-12 mt-4">
+                <label>
+                  <Field type="radio" name="transport" value="bike"></Field>
+                  Bike
+                </label>
+                { "  "}
+
+                <label>
+                  <Field type="radio" name="transport" value="car"></Field>
+                  Car
+                </label>
+
+                <p className="text-danger">
+                  <ErrorMessage name="transport"/>
                 </p>
 
               </div>
-              
+
+          
 
               <button className="btn btn-primary" type="submit">
                 Submit
