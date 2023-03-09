@@ -1,8 +1,9 @@
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import React, { Fragment } from "react";
 import * as yup from "yup";
+import { useHistory } from "react-router-dom";
 
-const SignUp = () => {
+const SignUp = (props) => {
   const defaultValue = {
     name: "",
     email: "",
@@ -24,8 +25,11 @@ const SignUp = () => {
     transport: yup.string().required("Please select transport mode"),
   });
 
+  let history = useHistory();
+
   const handleSubmit = (values) => {
     console.log("values", values);
+    history.push("/about");
   };
 
   return (
@@ -38,6 +42,7 @@ const SignUp = () => {
             initialValues={defaultValue}
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
+       
           >
             <Form>
               <div className="col-md-12 mt-4">
@@ -109,7 +114,7 @@ const SignUp = () => {
                   <Field type="radio" name="transport" value="bike"></Field>
                   Bike
                 </label>
-                
+
                 {"  "}
 
                 <label>
@@ -122,7 +127,11 @@ const SignUp = () => {
                 </p>
               </div>
 
-              <button className="btn btn-primary" type="submit">
+              <button
+                className="btn btn-primary"
+                type="submit"
+                
+              >
                 Submit
               </button>
             </Form>
