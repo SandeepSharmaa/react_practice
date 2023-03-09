@@ -8,8 +8,8 @@ const SignUp = () => {
     email: "",
     password: "",
     gender: "",
-    terms:false ,
-    transport:""
+    terms: false,
+    transport: "",
   };
 
   const validationSchema = yup.object().shape({
@@ -20,8 +20,8 @@ const SignUp = () => {
       .email("Please enter valid email"),
     password: yup.string().required("Please enter password"),
     gender: yup.string().required("Please select gender"),
-    terms:yup.boolean().oneOf([true,'Please acccept terms and condition']),
-    transport:yup.string().required("Please select transport mode")
+    terms: yup.boolean().oneOf([true, "Please acccept terms and condition"]),
+    transport: yup.string().required("Please select transport mode"),
   });
 
   const handleSubmit = (values) => {
@@ -96,12 +96,11 @@ const SignUp = () => {
 
               <div className="col-md-12 mt-4">
                 <label className="form-inline">
-                  <Field type="checkbox" name="terms">
-
-                  </Field>Accept Terms and Condition
+                  <Field type="checkbox" name="terms"></Field>Accept Terms and
+                  Condition
                 </label>
                 <p className="text-danger">
-                  <ErrorMessage name="terms"/>
+                  <ErrorMessage name="terms" />
                 </p>
               </div>
 
@@ -110,7 +109,8 @@ const SignUp = () => {
                   <Field type="radio" name="transport" value="bike"></Field>
                   Bike
                 </label>
-                { "  "}
+                
+                {"  "}
 
                 <label>
                   <Field type="radio" name="transport" value="car"></Field>
@@ -118,12 +118,9 @@ const SignUp = () => {
                 </label>
 
                 <p className="text-danger">
-                  <ErrorMessage name="transport"/>
+                  <ErrorMessage name="transport" />
                 </p>
-
               </div>
-
-          
 
               <button className="btn btn-primary" type="submit">
                 Submit
