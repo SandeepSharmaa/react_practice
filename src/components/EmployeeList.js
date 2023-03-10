@@ -1,8 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const EmployeeList = () => {
   const [empData, empDataChange] = useState(null);
+
+  let history = useHistory();
+
+  const LoadDetail=(id)=>{
+
+    history.push("/employee/detail/"+id);
+  }
+
+  const LoadEdit=(id)=>{
+
+  }
+
+  const RemoveFunction=(id)=>{
+
+  }
 
   useEffect(() => {
     fetch("http://localhost:3000/employee")
@@ -47,9 +63,9 @@ const EmployeeList = () => {
                     <td>{item.email}</td>
                     <td>{item.phone}</td>
                     <td>
-                      <a className="btn btn-success">Edit</a>
-                      <a className="btn btn-danger">Remove</a>
-                      <a className="btn btn-success">Details</a>
+                      <a onClick={()=>{LoadEdit(item.id)}} className="btn btn-success">Edit</a>
+                      <a onClick={()=>{RemoveFunction(item.id)}} className="btn btn-danger">Remove</a>
+                      <a onClick={()=>{LoadDetail(item.id)}} className="btn btn-success">Details</a>
                     </td>
                   </tr>
                 ))}
