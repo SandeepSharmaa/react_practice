@@ -13,10 +13,23 @@ const EmployeeList = () => {
   }
 
   const LoadEdit=(id)=>{
-
+    history.push("/employee/edit/"+id);
   }
 
   const RemoveFunction=(id)=>{
+    if(window.confirm('Do you want to remove?')){
+        fetch("http://localhost:3000/employee/"+id, {
+        method: "DELETE"
+      })
+        .then((res) => {
+          alert("Remove Successfully");
+          window.location.reload();
+          
+        })
+        .catch((err) => {
+          console.log(err.message);
+        });
+    }
 
   }
 
