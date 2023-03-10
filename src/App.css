@@ -17,3 +17,13 @@ position: absolute ;
 color: red;
 font-size: .6rem;
 }
+
+.btn{
+    margin: 2px;
+}
+.divbtn{
+    float: left;
+}
+.h2{
+    align-items: center;
+}

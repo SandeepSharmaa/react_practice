@@ -1,0 +1,31 @@
+{
+  "employee": [
+    {
+      "id": 1,
+      "title": "Sandeep Sharma",
+      "email": "abc@gmail.com",
+      "phone": "1234567890"
+    },
+    {
+      "name": "Gaurav",
+      "email": "abc@gmail.com",
+      "phone": "9934034034903",
+      "active": true,
+      "id": 2
+    },
+    {
+      "title": "Chanchal",
+      "email": "chan@gmail.com",
+      "phone": "1239504333",
+      "active": true,
+      "id": 3
+    },
+    {
+      "title": "",
+      "email": "",
+      "phone": "",
+      "active": true,
+      "id": 4
+    }
+  ]
+}

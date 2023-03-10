@@ -29,7 +29,7 @@ const SignUp = (props) => {
 
   const handleSubmit = (values) => {
     console.log("values", values);
-    history.push("/about");
+    history.push("/dashboard");
   };
 
   return (
@@ -42,7 +42,6 @@ const SignUp = (props) => {
             initialValues={defaultValue}
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
-       
           >
             <Form>
               <div className="col-md-12 mt-4">
@@ -127,11 +126,7 @@ const SignUp = (props) => {
                 </p>
               </div>
 
-              <button
-                className="btn btn-primary"
-                type="submit"
-                
-              >
+              <button className="btn btn-primary" type="submit">
                 Submit
               </button>
             </Form>
